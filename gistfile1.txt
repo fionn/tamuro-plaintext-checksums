@@ -2,25 +2,32 @@ We know nothing about the contents of these encrypted messages other than it's a
 using the same private encryption key with each message and foolishly, the crc is of the
 plaintext, not the ciphertext. Extract the keystream and use it to decrypt the secret flag.
 
-Difficulty: Medium
+flag (hex string) = 22360906580dc6f4d26fc4b0d8327932d87cf1
 
-flag = f3561b60119a18e67b6e96
-Format: stream_cipher(k, msg) || crc32-big_endian(msg)
+Message Format: stream_cipher(k, msg) || crc32-big_endian(msg)
 CRC Check = 0xfc891918 (crc-32-bzip2)
 
-Encrypted messages (hex strings):
-  b4e83a386579e6
-  c02c603d3c0cb04f
-  03c6414b29d4bfb8a942301c89f54f
-  1b57a605a3d89b9b6a965daff9
-  1cdae493f1980faec881887ee85d
-  8e00c243ca1e0935866b356ba0357de4
-  ecfaa441bbbea5dff1318e
-  ac61b0b0ff88f2bd93
-  cf73efe133c48f2928cfabdf
-  742b4bcb9e
-  459052984950
-  c0fe8f44bc3625135314
-  f7ff5224cfa1527191a05d15d537eb4406
+Encrypted messages:
+  d6e06a975295f388
+  c23c5d20bfe8712d73ce
+  8ec42d8623d774d58be529
+  8a74715ad68b1dd2583dea166bc660182b980294
+  6440124b5f091178d03351b1a4c3677a
+  89941795df97acb1e035348a6196be
+  3e8054579212eb
+  9c707e4b02ea
+  f2915b8f677ed6b156dd16dcc9b1f3af94
+  b1f23a80d7
+  08cb3dfbc775bc54142ae71d
+  ec343da5662aebf3a9
+  ca78c3124c9d18557d3c1d403427cfed3d0f5f1d1d32d324
+  42994ab15e58e6b84be7932ba0
+  683013518ae498ab5c09d1a80fe9d101a2b5b77ec2c4
+  a61c3d1944ceb50c03ce5d3255287fcd074c481b1fa6fd
+  2e60cad541d270fb66bdc1c0c84b9d39e9f5
+  d176a7e8b2425c963913dff7b9f67abd4be2d1
+  aae2cc53aa0d67f72eaf4facbf001cc5054e5a0048542c7570
+  a86eb94e6fa27910b241b67d355cceaa3fc2e3365a
+  76c7e67ae482e28fcd825a9a5e86
 
 Challenge generation code, with secrets removed, is in the next file,
