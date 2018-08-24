@@ -1,0 +1,24 @@
+We know nothing about the contents of these encrypted messages other than it's a stream cipher using the same private encryption key with each message and foolishly, the crc is of the plaintex, not the ciphertext. Extract the keystream and use it to decrypt the secret flag.
+
+Difficulty: Medium
+
+flag = f3561b60119a18e67b6e96
+Format: stream_cipher(k, msg) || crc32-big_endian(msg)
+CRC Check = 0xfc891918 (crc-32-bzip2)
+
+Encrypted messages (hex strings):
+  b4e83a386579e6
+  c02c603d3c0cb04f
+  03c6414b29d4bfb8a942301c89f54f
+  1b57a605a3d89b9b6a965daff9
+  1cdae493f1980faec881887ee85d
+  8e00c243ca1e0935866b356ba0357de4
+  ecfaa441bbbea5dff1318e
+  ac61b0b0ff88f2bd93
+  cf73efe133c48f2928cfabdf
+  742b4bcb9e
+  459052984950
+  c0fe8f44bc3625135314
+  f7ff5224cfa1527191a05d15d537eb4406
+
+Challenge generation code, with secrets removed, is in the next file,
