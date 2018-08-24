@@ -40,8 +40,7 @@ def generate_encrypted_messages(secret_key):
     print("  " + binascii.hexlify(m).decode('ascii'))  
   print("\n\n\n")
   return c
- 
-  
+
 if __name__ == "__main__":
   secret_key = generate_encryption_key()
   encrypted_flag = generate_flag(secret_key)

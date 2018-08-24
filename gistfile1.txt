@@ -1,4 +1,6 @@
-We know nothing about the contents of these encrypted messages other than it's a stream cipher using the same private encryption key with each message and foolishly, the crc is of the plaintex, not the ciphertext. Extract the keystream and use it to decrypt the secret flag.
+We know nothing about the contents of these encrypted messages other than it's a stream cipher
+using the same private encryption key with each message and foolishly, the crc is of the
+plaintext, not the ciphertext. Extract the keystream and use it to decrypt the secret flag.
 
 Difficulty: Medium
 
