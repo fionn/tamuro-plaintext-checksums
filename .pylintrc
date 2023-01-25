@@ -1,0 +1,10 @@
+[MESSAGES CONTROL]
+
+disable=duplicate-code,
+        invalid-name,
+        missing-class-docstring,
+        missing-function-docstring,
+        too-many-lines,
+        unspecified-encoding,
+        too-many-arguments,
+        too-few-public-methods
