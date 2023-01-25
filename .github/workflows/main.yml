@@ -1,0 +1,35 @@
+name: CI
+
+on: push
+
+jobs:
+  run:
+    name: Lint and run
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: Install Python dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pylint mypy
+      env:
+        PIP_DISABLE_PIP_VERSION_CHECK: 1
+        PIP_PROGRESS_BAR: "off"
+
+    - name: Lint
+      run: pylint main.py
+
+    - name: Typecheck
+      run: mypy main.py
+
+    - name: Run
+      run: python main.py
