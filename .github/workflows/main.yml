@@ -18,18 +18,16 @@ jobs:
         python-version: "3.11"
 
     - name: Install Python dependencies
-      run: |
-        pip install -r requirements.txt
-        pip install pylint mypy
+      run: pip install -r requirements.txt -r requirements_dev.txt
       env:
         PIP_DISABLE_PIP_VERSION_CHECK: 1
         PIP_PROGRESS_BAR: "off"
 
     - name: Lint
-      run: pylint main.py
+      run: pylint tamuro.py
 
     - name: Typecheck
-      run: mypy main.py
+      run: mypy tamuro.py
 
     - name: Run
-      run: python main.py
+      run: python tamuro.py

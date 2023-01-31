@@ -1,4 +1,4 @@
-# Tamuro _Plaintext Checksums_
+# Tamuro Plaintext Checksums
 
 ## Challenge
 
@@ -12,10 +12,8 @@ The naïve brute force approach is intractable, but we can attack in order of le
 Then xor this into the next message and only attack the remainder.
 Continue until all messages are decrypted, which will give you more than enough of the keystream to decrypt the flag.
 
-## Flag
+In the initial commit, the ciphertexts and encrypted flag are different. We attack both.
 
-In the initial commit, the ciphertexts and encrypted flag are different. Use
-```python
-encrypted_flag = to_bytes(0xf3561b60119a18e67b6e96)
-```
-and [`data/data_74b627d.txt`](data/data_74b627d.txt) to attack the original placeholder flag.
+## Build and Run
+
+Install `crcmod` and run `./tamuro.py`.
