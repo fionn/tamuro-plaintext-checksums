@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Tamuro "Plaintext Checksums" Solution"""
 
-from typing import NamedTuple, Iterator
+from collections.abc import Iterator
+from typing import NamedTuple
 
 import crcmod
 
@@ -35,7 +36,7 @@ def crc32(m: bytes) -> bytes:
 def load_data(path: str) -> Iterator[CiphertextChecksum]:
     """Yield ciphertext-checksum data from file"""
     with open(path) as data_fd:
-        for line in data_fd.readlines():
+        for line in data_fd:
             encrypted_message = bytes.fromhex(line.strip())
             yield ciphertext_checksum(encrypted_message)
 
@@ -50,7 +51,7 @@ def recover_keystream(ctcs: CiphertextChecksum,
         message = known_message + m_suffix
         if crc32(message) == ctcs.crc32:
             return fixed_xor(message, ctcs.ciphertext)
-    raise Exception
+    raise RuntimeError
 
 
 def attack(data: list[CiphertextChecksum], ciphertext: bytes) -> bytes:
